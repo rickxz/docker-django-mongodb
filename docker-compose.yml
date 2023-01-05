@@ -23,3 +23,5 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
       ME_CONFIG_MONGODB_SERVER: mongodb # use the name of the mongo container
+    depends_on:
+      - mongodb
