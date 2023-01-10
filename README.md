@@ -1,8 +1,8 @@
 ## 🏁 Start
 
 ```shell
-$ git clone https://github.com/rickxz/docker-mongodb-mongoexpress.git
-$ cd docker-mongodb-mongoexpress
+$ git clone https://github.com/rickxz/docker-django-mongodb.git
+$ cd docker-django-mongodb
 $ docker-compose up --build
 ```
 - To access Mongo Express, go to http://localhost:8081/
