@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  web:
+    build: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app:/usr/src/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - mongodb
+      - postgres
+
   mongodb:
     image: mongo:latest
     container_name: mongodb
@@ -25,3 +36,15 @@ services:
       ME_CONFIG_MONGODB_SERVER: mongodb # use the name of the mongo container
     depends_on:
       - mongodb
+  
+  postgres:
+    image: postgres:13.0-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+
+volumes:
+  postgres_data:
