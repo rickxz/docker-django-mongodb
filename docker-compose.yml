@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   web:
     build: ./app
@@ -23,7 +21,7 @@ services:
       - 27017:27017
     volumes:
       - ./database-data:/data/db
-  
+
   mongo-express:
     image: mongo-express:latest
     container_name: mongo-express
@@ -36,7 +34,7 @@ services:
       ME_CONFIG_MONGODB_SERVER: mongodb # use the name of the mongo container
     depends_on:
       - mongodb
-  
+
   postgres:
     image: postgres:13.0-alpine
     volumes:
