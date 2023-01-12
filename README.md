@@ -5,7 +5,8 @@ $ git clone https://github.com/rickxz/docker-django-mongodb.git
 $ cd docker-django-mongodb
 $ docker-compose up --build
 ```
-- To access Mongo Express, go to http://localhost:8081/
+
+- To access Adminer, go to http://localhost:8080/
 - To access Django, go to http://localhost:8000/
 
 #
@@ -18,6 +19,9 @@ $ docker-compose up --build
 - SQL_PASSWORD
 - SQL_HOST
 - SQL_PORT
+
+- MONGO_USERNAME
+- MONGO_PASSWORD
 
 #
 
