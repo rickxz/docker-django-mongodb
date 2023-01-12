@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     # Swagger
-    'drf_yasg'
-]
+    'drf_yasg',
+    # Logs
+    'logs',
+]   
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
