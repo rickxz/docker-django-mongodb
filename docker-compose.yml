@@ -13,7 +13,7 @@ services:
   mongodb:
     image: mongo:latest
     container_name: mongodb
-    restart: unless-stopped
+    restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: $${MONGO_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: $${MONGO_PASSWORD}
@@ -21,12 +21,9 @@ services:
       - 27017:27017
     volumes:
       - ./database-data:/data/db
-    env_file:
-      - ./.env.dev
 
   adminer:
     build: ./database
-    # image: adminer:latest
     restart: always
     ports:
       - 8080:8080
@@ -38,12 +35,11 @@ services:
     image: postgres:13.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
+    restart: always
     environment:
       POSTGRES_USER: $${SQL_USER}
       POSTGRES_PASSWORD: $${SQL_PASSWORD}
       POSTGRES_DB: $${SQL_DATABASE}
-    env_file:
-      - ./.env.dev
 
 volumes:
   postgres_data:
